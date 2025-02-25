@@ -23,7 +23,17 @@ class Scraper {
   }
 
   static async findLocalSellers(productType, location) {
-    const query = `site:facebook.com OR site:instagram.com ${productType} ${location} Texas "sell" OR "for sale"`;
+    // Handle different location formats
+    const locations = {
+      'San Antonio': 'San Antonio',
+      'La Vernia': 'La Vernia',
+      'Adkins': 'Adkins'
+    };
+    
+    const query = `site:facebook.com OR site:instagram.com ${productType} "${
+      locations[location] || location
+    } Texas" "sell" OR "for sale"`;
+    
     const results = await this.searchGoogle(query);
     
     return results.filter(result => 

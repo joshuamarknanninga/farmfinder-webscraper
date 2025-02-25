@@ -32,6 +32,7 @@ const SearchForm = ({ onResults }) => {
       >
         <option value="eggs">Eggs</option>
         <option value="dairy">Dairy</option>
+        {/* Add more products here */}
       </select>
 
       <select
@@ -40,6 +41,7 @@ const SearchForm = ({ onResults }) => {
       >
         <option value="Adkins">Adkins, TX</option>
         <option value="La Vernia">La Vernia, TX</option>
+        <option value="San Antonio">San Antonio, TX</option>
       </select>
 
       <button type="submit" disabled={loading}>
